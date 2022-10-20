@@ -9,4 +9,6 @@
         <p><a href="{% url 'album_detail' pk=album.pk %}">{{ album.title }}</a> by {{ album.artist }}</p>
     {% endfor %}
 
+    Don't see your album? Add album<a href="{% url 'create_album' %}">HERE</a>.
+
 {% endblock %}
