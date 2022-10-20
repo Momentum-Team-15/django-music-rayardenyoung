@@ -23,5 +23,5 @@ urlpatterns = [
     path('accounts/', include('registration.backends.simple.urls')),
     path('__debug__/', include('debug_toolbar.urls')),
     path('', views.index, name="home"),
-    path('album_detail.html', views.album_detail, name="album detail")
+    path('album/<int:pk>/', views.album_detail, name="album_detail")
 ]
