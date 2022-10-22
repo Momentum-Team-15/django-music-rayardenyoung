@@ -1,5 +1,5 @@
 from django import forms
-from .models import Album, Artist
+from .models import Album
 
 class AlbumForm(forms.ModelForm):
 
@@ -7,3 +7,9 @@ class AlbumForm(forms.ModelForm):
         model = Album
         #this is the bit that is spicy, you can add as many fields as you want
         fields = ['title', 'artist',]
+
+class ImageForm(forms.ModelForm):
+    """Form for the image model"""
+    class Meta:
+        model = Album.image
+        fields = ('image',)

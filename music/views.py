@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Album, Song
-from music.forms import AlbumForm
+from music.forms import AlbumForm, ImageForm
 
 # Create your views here.
 
@@ -31,3 +31,16 @@ def create_album(request):
         form = AlbumForm()
         #^^^if user is visiting a page with GET request, not submitting the form yet, render a blank
     return render(request, 'music/create_album.html', {'form': form})
+
+def image_upload_view(request):
+    """Process images uploaded by users"""
+    if request.method == 'POST':
+        form = ImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            #Get the current instance object to display in the template
+            Album.image = form.instance
+            return render(request, 'index.html', {'form': form, 'Album.image': Album.image})
+    else:
+        form = ImageForm()
+    return render(request, 'index.html', {'form': form})

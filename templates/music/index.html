@@ -6,6 +6,10 @@
     <h3> These are my albums:</h3>
 
     {% for album in albums %}
+        {% if album.image %}
+        <img src="{{ img_obj.image.url}}" style="max-height:300px">
+        {% endif %}
+
         <p><a href="{% url 'album_detail' pk=album.pk %}">{{ album.title }}</a> by {{ album.artist }}</p>
     {% endfor %}
 
