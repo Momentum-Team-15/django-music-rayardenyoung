@@ -4,8 +4,16 @@
 
     <h2>This is my Album Detail page called album_detail.html</h2>
 
-   <p>{{ album.title }}</p> 
+   <p>Album: {{ album.title }}</p> 
 
-   <p>{{ album.artist }}</p> 
+   <p>Artist: {{ album.artist }}</p>
+
+   {% for song in songs %}
+   <p>Songs: {{ album.song }}</p>
+   {% endfor %}
+
+   <p>Created: {{ album.created_at }}</p>
+
+   
 
 {% endblock %}
