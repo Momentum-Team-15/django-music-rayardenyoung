@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Album
+from .models import Album, Song
 from music.forms import AlbumForm
 
 # Create your views here.
@@ -11,6 +11,10 @@ def index(request):
 def album_detail(request, pk):
     album = Album.objects.get(pk=pk)
     return render(request, 'music/album_detail.html', {'album': album})
+
+def album_song_list(request, pk):
+    song = Song.objects.get(pk=pk)
+    return render(request, 'music/album_detail.html', {'song': song})
 
 def create_album(request):
     if request.method == 'POST':

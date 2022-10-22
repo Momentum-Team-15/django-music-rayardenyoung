@@ -2,18 +2,19 @@
 
 {% block content %}
 
-    <h2>This is my Album Detail page called album_detail.html</h2>
+<h2>This is my Album Detail page called album_detail.html</h2>
 
-   <p>Album: {{ album.title }}</p> 
+<p>Album: {{ album.title }}</p> 
 
-   <p>Artist: {{ album.artist }}</p>
+<p>Artist: {{ album.artist }}</p>
 
-   {% for song in songs %}
-   <p>Songs: {{ album.song }}</p>
-   {% endfor %}
+<p>Songs:</p>
+    {% for song in songs %}
+        </p>{{ album.song.name }}</p>
+    {% endfor %}
 
-   <p>Created: {{ album.created_at }}</p>
+<p>Created: {{ album.created_at }}</p>
 
-   
+
 
 {% endblock %}
