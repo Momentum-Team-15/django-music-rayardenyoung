@@ -1,5 +1,5 @@
 from django import forms
-from .models import Album
+from .models import Album, Image
 
 class AlbumForm(forms.ModelForm):
 
@@ -11,5 +11,5 @@ class AlbumForm(forms.ModelForm):
 class ImageForm(forms.ModelForm):
     """Form for the image model"""
     class Meta:
-        model = Album.image
-        fields = ('image',)
+        model = Image
+        fields = ('title', 'image')

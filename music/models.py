@@ -13,7 +13,8 @@ class Album(models.Model):
     artist = models.ForeignKey('Artist', on_delete=models.CASCADE, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    image = models.ImageField(upload_to='images/')
+    # image = models.ImageField(upload_to='images/')
+    image = models.ForeignKey('Image', on_delete=models.CASCADE, blank=True, null=True)
     user = models.ForeignKey('User', on_delete=models.CASCADE, blank=True, null=True)
     song = models.ForeignKey('Song', on_delete=models.CASCADE, blank=True, null=True, related_name='songs')
 
@@ -34,5 +35,6 @@ class Song(models.Model):
     def __str__(self):
         return f"{self.name}"
 
-# class Image(models.Model):
-    
+class Image(models.Model):
+    title = models.CharField(max_length=200, blank=True, null=True)
+    image = models.ImageField(upload_to='images')

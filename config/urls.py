@@ -27,6 +27,7 @@ urlpatterns = [
     path('', views.index, name="home",),
     path('album/new', views.create_album, name="create_album"),
     path('album/<int:pk>/', views.album_detail, name="album_detail"),
+    path('upload/', views.image_upload_view)
 ]
 
 if settings.DEBUG:
