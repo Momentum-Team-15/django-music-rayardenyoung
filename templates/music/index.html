@@ -5,6 +5,13 @@
     <h2>This is my homepage called index.html</h2>
     <h3> These are my albums:</h3>
 
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+
+
     {% for album in albums %}
         {% if img_obj %}
         <h3>{{img_obj.title}}</h3>

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Album, Song
 from music.forms import AlbumForm, ImageForm
 
@@ -44,3 +44,10 @@ def image_upload_view(request):
     else:
         form = ImageForm()
     return render(request, 'index.html', {'form': form})
+
+def delete_album(request, pk):
+    post = get_object_or_404(Album, pk=pk)
+    if request.method == "POST":
+        post.delete()
+        return redirect('home')
+    return render(request, 'music/delete_album.html')

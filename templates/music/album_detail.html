@@ -8,9 +8,11 @@
 
 <p>Artist: {{ album.artist }}</p>
 
+<a href="{% url 'delete_album' pk=album.pk %}">DELETE</a>
+
 <p>Songs:</p>
-    {% for song in songs %}
-        </p>{{ album.song.name }}</p>
+    {% for song in album.songs.all %}
+        </p>{{ song.name }}</p>
     {% endfor %}
 
 <p>Created: {{ album.created_at }}</p>
