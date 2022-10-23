@@ -1,4 +1,22 @@
 * {
     box-sizing: border-box;
     margin: 10px;
-    }
+}
+
+.album-images {
+    width: 200px;
+    height: 200px;
+}
+
+.album_index_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    
+}
+
+.album_card {
+    font-size: 12px;
+    /* border: 2px solid blue; */
+    padding: 10px;
+    width: min-content;
+    text-align: center;

@@ -18,6 +18,7 @@ from django.conf import settings
 from django.urls import path, include
 from django.conf.urls.static import static
 from music import views
+from music.views import Cover
 
 
 urlpatterns = [
@@ -29,7 +30,7 @@ urlpatterns = [
     path('album/<int:pk>/', views.album_detail, name="album_detail"),
     path('album/<int:pk>/edit/', views.edit_album, name='edit_album'),
     path('album/delete/<int:pk>', views.delete_album, name='delete_album'),
-    path('upload/', views.image_upload_view),
+    path('', Cover.as_view()),
 ]
 
 if settings.DEBUG:

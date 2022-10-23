@@ -2,25 +2,29 @@
 
 {% block content %}
 
-    <h2>This is my homepage called index.html</h2>
-    <h3> These are my albums:</h3>
+<h2>This is my homepage called index.html</h2>
+<h3> These are my albums:</h3>
 
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Upload</button>
-    </form>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload</button>
+</form>
 
-
+<div class="album_index_container">
     {% for album in albums %}
-        {% if img_obj %}
-        <h3>{{img_obj.title}}</h3>
-        <img src="{{ img_obj.image.url}}" style="max-height:300px">
-        {% endif %}
+    {% if album.cover %}
 
-        <p><a href="{% url 'album_detail' pk=album.pk %}">{{ album.title }}</a> by {{ album.artist }} test: {{ album.song }}</p>
+    <img class="album-images" src="{{ album.cover.url }}">
+    {% else %}
+    <img class="album-images" src="media/images/music_note.png">
+    {% endif %}
+
+
+    <p><a href="{% url 'album_detail' pk=album.pk %}">{{ album.title }}</a> by {{ album.artist }} test: {{ album.song }}
+    </p>
     {% endfor %}
-
-    <h4>Don't see your album? Add album<a href="{% url 'create_album' %}">HERE</a></h4>
+</div>
+<h4>Don't see your album? Add album<a href="{% url 'create_album' %}">HERE</a></h4>
 
 {% endblock %}

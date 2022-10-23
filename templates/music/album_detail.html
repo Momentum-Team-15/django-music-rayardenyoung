@@ -4,6 +4,12 @@
 
 <h2>This is my Album Detail page called album_detail.html</h2>
 
+{% if album.cover %}
+<img src="{{ album.cover.url }}">
+{% else %}
+<p> No image provided.</p>
+{% endif %}
+
 <p>Album: {{ album.title }}</p> 
 
 <p>Artist: {{ album.artist }}</p>

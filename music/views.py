@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.views.generic import ListView
 from .models import Album
-from music.forms import AlbumForm, ImageForm
+from music.forms import AlbumForm
 
 # Create your views here.
 
@@ -51,18 +52,21 @@ def edit_album(request, pk):
         form = AlbumForm(instance=post)
     return render(request, 'music/edit_album.html', {'form': form})
 
+class Cover(ListView):
+    model = Album
+    template_name = "base.html"
+
 
 #trying to get images to show
-def image_upload_view(request):
-    """Process images uploaded by users"""
-    if request.method == 'POST':
-        form = ImageForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            #Get the current instance object to display in the template
-            img_obj = form.instance
-            return render(request, 'index.html', {'form': form, 'img_obj': img_obj})
-    else:
-        form = ImageForm()
-    return render(request, 'index.html', {'form': form})
-
+# def image_upload_view(request):
+#     """Process images uploaded by users"""
+#     if request.method == 'POST':
+#         form = ImageForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             form.save()
+#             #Get the current instance object to display in the template
+#             img_obj = form.instance
+#             return render(request, 'index.html', {'form': form, 'img_obj': img_obj})
+#     else:
+#         form = ImageForm()
+#     return render(request, 'index.html', {'form': form})
