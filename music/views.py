@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Album, Song
+from .models import Album
 from music.forms import AlbumForm, ImageForm
 
 # Create your views here.
@@ -13,13 +13,13 @@ def album_detail(request, pk):
     return render(request, 'music/album_detail.html', {'album': album})
 
 def album_song_list(request, pk):
-    song = Song.objects.get(pk=pk)
-    return render(request, 'music/album_detail.html', {'song': song})
+    song = Album.objects.get(pk=pk)
+    return render(request, 'music/album_detail.html', {'songs': song})
 
 def create_album(request):
     if request.method == 'POST':
         #if user is submitting the form
-        form = AlbumForm(request.POST)
+        form = AlbumForm(request.POST, request.FILES)
         #form is the filled out ("bound") form with user data
         if form.is_valid():
             #django checks if form is valid (filled out with no missing or mistyped data)
@@ -32,6 +32,27 @@ def create_album(request):
         #^^^if user is visiting a page with GET request, not submitting the form yet, render a blank
     return render(request, 'music/create_album.html', {'form': form})
 
+def delete_album(request, pk):
+    post = get_object_or_404(Album, pk=pk)
+    if request.method == "POST":
+        post.delete()
+        return redirect('home')
+    return render(request, 'music/delete_album.html')
+
+def edit_album(request, pk):
+    post = get_object_or_404(Album, pk=pk)
+    if request.method == "POST":
+        form = AlbumForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('album_detail', pk=post.pk)
+    else:
+        form = AlbumForm(instance=post)
+    return render(request, 'music/edit_album.html', {'form': form})
+
+
+#trying to get images to show
 def image_upload_view(request):
     """Process images uploaded by users"""
     if request.method == 'POST':
@@ -45,9 +66,3 @@ def image_upload_view(request):
         form = ImageForm()
     return render(request, 'index.html', {'form': form})
 
-def delete_album(request, pk):
-    post = get_object_or_404(Album, pk=pk)
-    if request.method == "POST":
-        post.delete()
-        return redirect('home')
-    return render(request, 'music/delete_album.html')

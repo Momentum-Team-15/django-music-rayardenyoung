@@ -18,7 +18,7 @@
         <img src="{{ img_obj.image.url}}" style="max-height:300px">
         {% endif %}
 
-        <p><a href="{% url 'album_detail' pk=album.pk %}">{{ album.title }}</a> by {{ album.artist }}</p>
+        <p><a href="{% url 'album_detail' pk=album.pk %}">{{ album.title }}</a> by {{ album.artist }} test: {{ album.song }}</p>
     {% endfor %}
 
     <h4>Don't see your album? Add album<a href="{% url 'create_album' %}">HERE</a></h4>
