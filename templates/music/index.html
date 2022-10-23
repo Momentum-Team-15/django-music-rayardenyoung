@@ -13,16 +13,16 @@
 
 <div class="album_index_container">
     {% for album in albums %}
-    {% if album.cover %}
+    <div class="album_card">
+        {% if album.cover %}
+        <img class="album-images" src="{{ album.cover.url }}">
+        {% else %}
+        <img class="album-images" src="media/images/music_note.png">
+        {% endif %}
 
-    <img class="album-images" src="{{ album.cover.url }}">
-    {% else %}
-    <img class="album-images" src="media/images/music_note.png">
-    {% endif %}
 
-
-    <p><a href="{% url 'album_detail' pk=album.pk %}">{{ album.title }}</a> by {{ album.artist }} test: {{ album.song }}
-    </p>
+    <p><a href="{% url 'album_detail' pk=album.pk %}">{{ album.title }}</a> by {{ album.artist }} test: {{ album.song }}</p>
+    </div>
     {% endfor %}
 </div>
 <h4>Don't see your album? Add album<a href="{% url 'create_album' %}">HERE</a></h4>
