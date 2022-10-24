@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView
-from .models import Album
+from .models import Album, Song
 from music.forms import AlbumForm
 
 # Create your views here.

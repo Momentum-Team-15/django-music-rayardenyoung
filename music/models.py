@@ -16,7 +16,7 @@ class Album(models.Model):
     # image = models.ImageField(upload_to='images/')
     cover = models.ImageField(upload_to='images/', blank=True, null=True)
     user = models.ForeignKey('User', on_delete=models.CASCADE, blank=True, null=True)
-    
+    # song = models.ManyToManyField('Song', related_name='albums')
 
     def __str__(self):
         return f"{self.title} by {self.artist}"
