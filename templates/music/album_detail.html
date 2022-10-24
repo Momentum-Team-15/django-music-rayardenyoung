@@ -19,6 +19,11 @@
         <li>{{ song }}</li>
     {% endfor %}
 
+<p>Also by this artist:</p>
+    {% for album in artist.album %}
+        <li>{{ album }}</li>
+    {% endfor %}
+
 <p>Created: {{ album.created_at }}</p>
 
 <a href="{% url 'edit_album' pk=album.pk %}">EDIT</a>

@@ -17,6 +17,7 @@ class Album(models.Model):
     cover = models.ImageField(upload_to='images/', blank=True, null=True)
     user = models.ForeignKey('User', on_delete=models.CASCADE, blank=True, null=True)
     # song = models.ManyToManyField('Song', related_name='albums')
+    # artists = models.ManyToManyField('Artist', related_name='albums')
 
     def __str__(self):
         return f"{self.title} by {self.artist}"
@@ -24,7 +25,8 @@ class Album(models.Model):
 
 class Artist(models.Model):
     name = models.CharField(max_length=200)
-
+    # albums = models.ManyToManyField('Album', related_name='artists')
+    
     def __str__(self):
         return f"{self.name}"
 
@@ -34,3 +36,4 @@ class Song(models.Model):
 
     def __str__(self):
         return f"{self.name}"
+

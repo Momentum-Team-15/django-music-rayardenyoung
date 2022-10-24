@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView
-from .models import Album, Song
+from .models import Album, Song, Artist
 from music.forms import AlbumForm
 
 # Create your views here.
@@ -16,6 +16,10 @@ def album_detail(request, pk):
 def album_song_list(request, pk):
     song = Song.objects.get(pk=pk)
     return render(request, 'music/album_detail.html', {'song': song})
+
+def also_by_artist(request):
+    artist = Artist.objects.all()
+    return render(request, 'music/album_detail.html', {'artists': artist})
 
 def create_album(request):
     if request.method == 'POST':
