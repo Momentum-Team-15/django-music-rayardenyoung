@@ -17,9 +17,9 @@ def album_song_list(request, pk):
     song = Song.objects.get(pk=pk)
     return render(request, 'music/album_detail.html', {'song': song})
 
-def also_by_artist(request):
-    artist = Artist.objects.all()
-    return render(request, 'music/album_detail.html', {'artists': artist})
+# def also_by_artist(request):
+#     artist = Artist.objects.all()
+#     return render(request, 'music/album_detail.html', {'artists': artist})
 
 def create_album(request):
     if request.method == 'POST':
