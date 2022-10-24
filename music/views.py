@@ -14,7 +14,7 @@ def album_detail(request, pk):
     return render(request, 'music/album_detail.html', {'album': album})
 
 def album_song_list(request, pk):
-    song = Album.objects.get(pk=pk)
+    song = Song.objects.get(pk=pk)
     return render(request, 'music/album_detail.html', {'song': song})
 
 def create_album(request):
