@@ -56,9 +56,29 @@ def edit_album(request, pk):
         form = AlbumForm(instance=post)
     return render(request, 'music/edit_album.html', {'form': form})
 
+
+def favorite(request):
+    favorited = Album.objects.all()
+    return render(request, 'music/favorite_page.html', {'favorited': favorited})
+
+def add_favorite(request, res_pk):
+    album = get_object_or_404(Album, pk=res_pk)
+    unfavorited = False
+    for favorite in request.user.favorites.all():
+        if album == favorite.album:
+            favorite.delete()
+            unfavorited = True
+    if not unfavorited:
+        favorite = Favorite.objects.create(album=album, user=request.user)
+        favorite.save()
+    return redirect("home")
+
+
 class Cover(ListView):
     model = Album
     template_name = "base.html"
+
+
 
 
 #trying to get images to show

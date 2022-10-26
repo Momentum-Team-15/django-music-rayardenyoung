@@ -37,3 +37,7 @@ class Song(models.Model):
     def __str__(self):
         return f"{self.name}"
 
+class Favorite(models.Model):
+    album = models.ForeignKey('Album', on_delete=models.CASCADE, blank=True, null=True, related_name="favorites")
+    user = models.ForeignKey('User', on_delete=models.CASCADE, blank=True, null=True, related_name="favorites")
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)

@@ -8,6 +8,8 @@
 </form>
 <div class="album_index_container">
     {% for album in albums|dictsort:"artist.name" %}
+    <a href="{% url 'favorite' res_pk=album.pk %}">Favorite</a>
+    
     <div class="album_card">
         {% if album.cover %}
         <img class="album-images" src="{{ album.cover.url }}">
