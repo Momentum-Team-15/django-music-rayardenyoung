@@ -10,7 +10,9 @@
     <title>Document</title>
 </head>
 <header>
-    <h2 class="header">django music</h2>
+    <div class="cassette-container">
+        <img class="cassette" src="media/images/cassette.png"></img>
+    </div>
     <a href="{% url 'home' %}">Homepage</a>
 
     <a href="{% url 'favorite_page' %}">Favorites</a>
@@ -18,6 +20,7 @@
 <body>
     {% block content %} {% endblock %}
 </body>
+<div class="test"></div>
 </html>
 
 

@@ -44,11 +44,21 @@
     width: min-content;
 }
 
-.header {
+.cassette {
+    width: 400px;
+    
+}
+
+.test {
+    background-image:  url("/static/media/images/rainbow.png")
+}
+/* 
+header {
     color: darkcyan;
     background-color: lightcyan;
     padding: 10px;
-}
+    background: url("media/images/cassette.png");
+}  */
 
 /* hides the checkbox
 input {
