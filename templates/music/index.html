@@ -2,8 +2,7 @@
 
 {% block content %}
 
-<h2>This is my homepage called index.html</h2>
-<h3> These are my albums:</h3>
+
 
 </form>
 <div class="album_index_container">
@@ -17,9 +16,7 @@
 
         <p><a href="{% url 'album_detail' pk=album.pk %}">{{ album.title }}</a></p>
         <p> by {{ album.artist }}
-            <a href="{% url 'favorite' alb_pk=album.pk %}">Favorite</a>
-            <button type="submit" class="favorite_button" onclick="favButton({{tree.treeId}});">
-                <span class="heart-empty"></span></button>');
+                <p><a href="{% url 'favorite' alb_pk=album.pk %}">&#9829</a></p>
     </div>
     {% endfor %}
 </div>

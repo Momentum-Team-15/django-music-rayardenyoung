@@ -1,13 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<div class="fav-album-container">
+    
 {% for fav in favorited %}
-<div>
-    <p>Title: {{ fav.album.title }}</p>
-    <p>Artist: {{ fav.album.artist }}</p>
-    <p>Created At: {{ fav.album.created_date }}</p>
+<div class="fav-album-container-inner">
+    {% if fav.album.cover %}
+    <img class="fav-album-images" src="{{ fav.album.cover.url }}">
+    {% else %}
+    <p> No image provided.</p>
+    {% endif %}
+<div class="fav-album-card">    
+<p>Title: {{ fav.album.title }}</p>
+<p>Artist: {{ fav.album.artist }}</p>
+<p>Created At: {{ fav.album.created_date }}</p>
+</div>
 </div>
 {% endfor %}
-
+</div>
 {% endblock %}
