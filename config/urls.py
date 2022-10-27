@@ -31,7 +31,7 @@ urlpatterns = [
     path('album/<int:pk>/edit/', views.edit_album, name='edit_album'),
     path('album/delete/<int:pk>', views.delete_album, name='delete_album'),
     path('', Cover.as_view()),
-    path('favorites/new/<int:res_pk>', views.add_favorite, name='favorite'),
+    path('favorites/new/<int:alb_pk>', views.add_favorite, name='favorite'),
     path('favorites/', views.favorite, name='favorite_page')
 ]
 

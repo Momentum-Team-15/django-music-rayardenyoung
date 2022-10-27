@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView
-from .models import Album, Song, Artist
+from .models import Album, Song, Artist, Favorite
 from music.forms import AlbumForm
 
 # Create your views here.
@@ -58,11 +58,11 @@ def edit_album(request, pk):
 
 
 def favorite(request):
-    favorited = Album.objects.all()
+    favorited = Favorite.objects.all()
     return render(request, 'music/favorite_page.html', {'favorited': favorited})
 
-def add_favorite(request, res_pk):
-    album = get_object_or_404(Album, pk=res_pk)
+def add_favorite(request, alb_pk):
+    album = get_object_or_404(Album, pk=alb_pk)
     unfavorited = False
     for favorite in request.user.favorites.all():
         if album == favorite.album:

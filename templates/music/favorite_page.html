@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for fav in favorited %}
+<div>
+    <p>Title: {{ fav.album.title }}</p>
+    <p>Artist: {{ fav.album.artist }}</p>
+    <p>Created At: {{ fav.album.created_date }}</p>
+</div>
+{% endfor %}
+
+{% endblock %}
