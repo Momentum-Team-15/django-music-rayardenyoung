@@ -28,17 +28,21 @@
 } 
 
 .album_index_container {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
     text-align: center;
-    
-
 
 }
 
 .album_card {
-    border: 2px solid purple;
+
+    border: 5px solid transparent;
+    /* border-image: linear-gradient(to bottom right, red 0%, #fec837 25%, #b8fd33 50%, #2c90fc 75%, #00008B 100%); */
+    border-image: linear-gradient(to bottom right, #00008B 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, red 100%);
+    border-image-slice: 1;
+
+
     margin: 15px;
     padding: 10px;
     width: min-content;
