@@ -11,18 +11,17 @@
 
 }
 .fav-album-card {
-    border: 2px solid purple;
-    
+    /* border: 2px solid purple; */
 }
 
 .fav-album-container {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     
    
 }
 
 .fav-album-container-inner{
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     display: flex;
    
 } 
@@ -33,6 +32,9 @@
     grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
     text-align: center;
 
+}
+.bold {
+    font-weight: bold;
 }
 
 .album_card {
