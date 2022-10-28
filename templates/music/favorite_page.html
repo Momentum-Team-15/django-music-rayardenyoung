@@ -19,6 +19,7 @@
 <p class="bold">Title: {{ fav.album.title }}</p>
 <p class="bold">Artist: {{ fav.album.artist }}</p>
 <p class="bold">Created At: {{ fav.album.created_date }}</p>
+<p><a href="{% url 'favorite' alb_pk=album.pk %}">&#9829</a></p>
 </div>
 </div>
 {% endfor %}

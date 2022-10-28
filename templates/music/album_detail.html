@@ -2,29 +2,27 @@
 
 {% block content %}
 
-<h2>This is my Album Detail page called album_detail.html</h2>
-
 {% if album.cover %}
 <img class="album-images" src="{{ album.cover.url }}">
 {% else %}
-<p> No image provided.</p>
+<p><img class="fav-album-images" src="/media/images/music_note.png"></p>
 {% endif %}
 
-<p>Album: {{ album.title }}</p> 
+<p class="bold">Artist: {{ album.artist }}</p>
 
-<p>Artist: {{ album.artist }}</p>
+<p class="bold">Album: {{ album.title }}</p> 
 
-<p>Songs:</p>
+<p class="bold">Songs:</p>
     {% for song in album.songs.all %}
         <li>{{ song }}</li>
     {% endfor %}
 
-<p>Also by this artist:</p>
+<!-- <p class="bold">Also by this artist:</p>
     {% for album in artist.album %}
         <li>{{ album }}</li>
-    {% endfor %}
+    {% endfor %} -->
 
-<p>Created: {{ album.created_at }}</p>
+<p class="bold">Created: {{ album.created_date }}</p>
 
 <a href="{% url 'edit_album' pk=album.pk %}">EDIT</a>
 
