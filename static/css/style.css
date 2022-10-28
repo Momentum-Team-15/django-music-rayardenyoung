@@ -44,13 +44,20 @@
     width: min-content;
 }
 
+/* h4 {
+    margin-top: -25px;
+    display: flex;
+    justify-content: flex-end
+} */
 .cassette {
     width: 400px;
+    margin-top: -25px;
     
 }
 
-.test {
-    background-image:  url("/static/media/images/rainbow.png")
+.home_fav_links {
+    display: flex;
+    justify-content: flex-end
 }
 /* 
 header {

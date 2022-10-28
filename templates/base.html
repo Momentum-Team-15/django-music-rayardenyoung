@@ -8,16 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>Document</title>
-</head>
-<header>
-    <div class="cassette-container">
-        <img class="cassette" src="media/images/cassette.png"></img>
-    </div>
+</head> 
+<header class="home_fav_links">
     <a href="{% url 'home' %}">Homepage</a>
-
     <a href="{% url 'favorite_page' %}">Favorites</a>
 </header>
-<body style="background-image: url('{% static 'static_images/rainbow3.png' %}');">
+    <div class="cassette-container">
+        <img class="cassette" src="/media/images/cassette.png"></img>
+    </div>
+    
+
+<body style="background-image: url('{% static 'static_images/rainbow3.png'%}');">
     {% block content %} {% endblock %}
 </body>
 <div></div>

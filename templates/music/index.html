@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<!-- <header>
+    <div class="cassette-container">
+        <img class="cassette" src="media/images/cassette.png"></img>
+    </div>
+</header> -->
 </form>
 <div class="album_index_container">
     {% for album in albums|dictsort:"artist.name" %}
@@ -9,7 +13,7 @@
         {% if album.cover %}
         <img class="album-images" src="{{ album.cover.url }}">
         {% else %}
-        <img class="album-images" src="media/images/music_note.png">
+        <img class="album-images" src="/media/images/music_note.png">
         {% endif %}
 
         <p><a href="{% url 'album_detail' pk=album.pk %}">{{ album.title }}</a></p>
@@ -18,6 +22,6 @@
     </div>
     {% endfor %}
 </div>
-<h4>Don't see your album? Add album<a href="{% url 'create_album' %}">HERE</a></h4>
+<h4>Don't see your album? Add new album<a href="{% url 'create_album' %}">HERE</a></h4>
 
 {% endblock %}

@@ -1,23 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>    
+<!-- <header>
+    <div class="cassette-container">
+        <img class="cassette" src="/media/images/cassette.png"></img>
+    </div>
+</header> -->
+   
 <div class="fav-album-container">
 {% for fav in favorited %}
 <div class="fav-album-container-inner">
     {% if fav.album.cover %}
     <img class="fav-album-images" src="{{ fav.album.cover.url }}">
     {% else %}
-    <p> No image provided.</p>
+    <p><img class="fav-album-images" src="/media/images/music_note.png"></p>
     {% endif %}
 <div class="fav-album-card">    
 <p>Title: {{ fav.album.title }}</p>
